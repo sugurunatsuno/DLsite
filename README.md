@@ -3,9 +3,15 @@ DLsite
 
 A python package that get information of products in DLsite.
 
+requirements
+------------
+requests  
+beautifulsoup4  
+lxml
+
 Installing
 ----------
-~~pip install dlsite~~
+`pip install DLsite`
 
 Example
 -------
