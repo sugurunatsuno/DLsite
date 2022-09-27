@@ -13,8 +13,10 @@ def _get_not_found_uri():
     p = Product('https://tweetdeck.twitter.com')
 
 def test_002():
-    with pytest.raises(ProductNotFoundException):
+    with pytest.raises(ProductArgmentException) as e:
         _get_not_found_uri()
+    
+    assert str(e.value) == "DLSiteのドメインではありません"
 
 # 対象の作品が存在しない場合のURI
 def test_003():

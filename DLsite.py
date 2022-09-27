@@ -7,7 +7,13 @@ class Product:
     DLSiteの作品情報を格納するクラス
     '''
     def __init__(self, url):
+
+        # DLSiteのドメインではない場合はExceptionを出す
+        if not 0 <= url.find("https://www.dlsite.com/"):
+            raise ProductArgmentException("DLSiteのドメインではありません")
+
         request = requests.get(url, timeout=5)
+        self.status_code = request.status_code
         if request.status_code != 200:
             return
 
