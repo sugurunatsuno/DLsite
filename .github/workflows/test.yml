@@ -30,4 +30,22 @@ jobs:
 
       - name: test
         run: |
-          pytest
+          pytest --junit-xml results/pytest.xml
+
+      - name: upload test results
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: Unit Test Results (Python ${{ matrix.python-version }})
+          path: results/*.xml
+
+      - name: download artifacts
+        if: success() || failure()
+        uses: actions/download-artifact@v2
+        with:
+          path: artifacts
+
+      - name: publish test results
+        uses: EnricoMi/publish-unit-test-result-action@v1
+        with:
+          files: artifacts/**/*.xml
