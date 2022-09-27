@@ -3,7 +3,9 @@ from bs4 import BeautifulSoup
 
 
 class Product:
-
+    '''
+    DLSiteの作品情報を格納するクラス
+    '''
     def __init__(self, url):
         request = requests.get(url, timeout=5)
         if request.status_code != 200:
@@ -76,3 +78,16 @@ class Product:
 
     def __repr__(self):
         return self.__str__()
+
+class ProductArgmentException(Exception):
+    '''
+    URIがDLSiteではない時のエラー
+    '''
+    pass
+
+
+class ProductNotFoundException(Exception):
+    '''
+    作品が見つからなかった時のエラー
+    '''
+    pass

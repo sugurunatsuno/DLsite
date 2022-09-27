@@ -7,3 +7,4 @@ requests
 soupsieve
 urllib3
 wincertstore
+pytest
