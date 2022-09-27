@@ -48,4 +48,4 @@ jobs:
       - name: publish test results
         uses: EnricoMi/publish-unit-test-result-action@v2
         with:
-          files: artifacts/**/*.xml
+          junit_files: artifacts/**/*.xml
