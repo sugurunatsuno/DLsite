@@ -36,8 +36,8 @@ class Product:
             if current_label == '販売日':
                 self.release_date = current_value.text.replace('\n', '')
 
-            if current_label == '最終更新日':
-                self.last_updated = current_value.text.replace('\n', '')
+            if current_label == '最終更新日' or current_label == '更新情報':
+                self.last_updated = current_value.text.replace('\n', '').replace(' ', '')
 
             if current_label == '作者':
                 elements = current_value.find_all('a')
@@ -88,12 +88,5 @@ class Product:
 class ProductArgmentException(Exception):
     '''
     URIがDLSiteではない時のエラー
-    '''
-    pass
-
-
-class ProductNotFoundException(Exception):
-    '''
-    作品が見つからなかった時のエラー
     '''
     pass
