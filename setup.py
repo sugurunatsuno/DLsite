@@ -9,7 +9,7 @@ info = sys.version_info
 
 setup(
     name='DLsite',
-    version='0.1.0',
+    version='0.2.0',
     description='',
     long_description=readme,
     long_description_content_type='text/markdown',
@@ -23,7 +23,7 @@ setup(
         'Development Status :: 2 - Pre-Alpha',
         'Natural Language :: English',
         "License :: OSI Approved :: MIT License",
-        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.10',
         "Operating System :: OS Independent",
     ],
     test_suite="test",
